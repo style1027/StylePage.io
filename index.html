@@ -336,23 +336,144 @@
       </article>
     </section>
     <section class=main-section id=Variables>
-    <header>Variables</header>
+    <header>C# 基本语法</header>
     <p>
-      You use variables as symbolic names for values in your application. The
-      names of variables, called identifiers, conform to certain rules.
+      C# 是一种面向对象的编程语言。在面向对象的程序设计方法中，程序由各种相互交互的对象组成。相同种类的对象通常具有相同的类型，或者说，是在相同的 class 中。
+
+      例如，以 Rectangle（矩形）对象为例。它具有 length 和 width 属性。根据设计，它可能需要接受这些属性值、计算面积和显示细节。
+    
+      让我们来看看一个 Rectangle（矩形）类的实现，并借此讨论 C# 的基本语法：
     </p>
+    <code>  <span style="color: #05a; font-weight: bold;">using</span> <span style="color: #696969;">System</span><span style="color: #008000;">;</span>
+            <span style="color: #05a; font-weight: bold;">namespace</span> RectangleApplication
+            <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; <span style="color: #6666cc; font-weight: bold;">class</span> Rectangle
+            &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #696969; font-style: italic;">// 成员变量</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6666cc; font-weight: bold;">double</span> length<span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #6666cc; font-weight: bold;">double</span> width<span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> Acceptdetails<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; length <span style="color: #008000;">=</span> <span style="color: Maroon;">4.5</span><span style="color: #008000;">;</span> &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width <span style="color: #008000;">=</span> <span style="color: Maroon;">3.5</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">double</span> GetArea<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">return</span> length <span style="color: #008000;">*</span> width<span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">public</span> <span style="color: #6666cc; font-weight: bold;">void</span> Display<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console<span style="color: #008000;">.</span><span style="color: #05a;">WriteLine</span><span style="color: #008000;">&#40;</span><span style="color: #a11;">&quot;Length: {0}&quot;</span>, length<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console<span style="color: #008000;">.</span><span style="color: #05a;">WriteLine</span><span style="color: #008000;">&#40;</span><span style="color: #a11;">&quot;Width: {0}&quot;</span>, width<span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console<span style="color: #008000;">.</span><span style="color: #05a;">WriteLine</span><span style="color: #008000;">&#40;</span><span style="color: #a11;">&quot;Area: {0}&quot;</span>, GetArea<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            &nbsp; &nbsp; 
+            &nbsp; &nbsp; <span style="color: #6666cc; font-weight: bold;">class</span> ExecuteRectangle
+            &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> Main<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">string</span><span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span> args<span style="color: #008000;">&#41;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Rectangle r <span style="color: #008000;">=</span> <span style="color: #008000;">new</span> Rectangle<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; r<span style="color: #008000;">.</span><span style="color: #05a;">Acceptdetails</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; r<span style="color: #008000;">.</span><span style="color: #05a;">Display</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Console<span style="color: #008000;">.</span><span style="color: #05a;">ReadLine</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span>
+            &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            &nbsp; &nbsp; <span style="color: #008000;">&#125;</span>
+            <span style="color: #008000;">&#125;</span>
+    </code>
     <p>
-      A JavaScript identifier must start with a letter, underscore (_), or
-      dollar sign ($); subsequent characters can also be digits (0-9). Because
-      JavaScript is case sensitive, letters include the characters A through
-      Z (uppercase) and the characters a through z (lowercase).
+      当上面的代码被编译和执行时，它会产生下列结果：
     </p>
+        <pre>
+        Length: 4.5
+        Width: 3.5
+        Area: 15.75
+        </pre>
     <p>
-      You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers.
-      You can also use the Unicode escape sequences as characters in
-      identifiers. Some examples of legal names are Number_hits, temp99, and
-      _name.
+        using 关键字
     </p>
+        <p>在任何 C# 程序中的第一条语句都是：<code>using System;</code></p>
+        <p><b>using</b> 关键字用于在程序中包含命名空间。一个程序可以包含多个 using 语句。</p>
+                <h2 class="tutheader"><i>class</i> 关键字</h2>
+                <p><b>class</b> 关键字用于声明一个类。</p> 
+                <h2 class="tutheader">C# 中的注释</h2>
+                <p>注释是用于解释代码。编译器会忽略注释的条目。在 C# 程序中，多行注释以 <span class="marked">/*</span> 开始，并以字符 <span class="marked">*/</span> 终止，如下所示：</p>
+                <pre>
+                /* 这个程序演示
+                C# 的注释
+                使用 */
+                </pre>
+                <p>单行注释是用 <span class="marked">//</span> 符号表示。例如：</p>
+                <pre>
+                // 这一行是注释 
+                </pre>
+                <h2 class="tutheader">成员变量</h2>
+                <p>变量是类的属性或数据成员，用于存储数据。在上面的程序中，<i>Rectangle</i> 类有两个成员变量，名为 <i>length</i> 和 <i>width</i>。</p> 
+                <h2 class="tutheader">成员函数</h2>
+                <p>函数是一系列执行指定任务的语句。类的成员函数是在类内声明的。我们举例的类 Rectangle 包含了三个成员函数：<i> AcceptDetails</i>、<i>GetArea</i> 和 <i>Display</i>。</p> 
+                <h2 class="tutheader">实例化一个类</h2>
+                <p>在上面的程序中，类 <i>ExecuteRectangle</i> 是一个包含 <i>Main() </i> 方法和实例化 <i>Rectangle</i> 类的类。</p>
+                <h2 class="tutheader">标识符</h2>
+                <p>标识符是用来识别类、变量、函数或任何其它用户定义的项目。在 C# 中，类的命名必须遵循如下基本规则：</p>
+                <ul class="list">
+                <li>标识符必须以字母、下划线或 <span class="marked">@</span> 开头，后面可以跟一系列的字母、数字（ 0 - 9 ）、下划线（ _ ）、@。</li>
+                <li>标识符中的第一个字符不能是数字。</li>
+                <li>标识符必须不包含任何嵌入的空格或符号，比如 ? - +! # % ^ & * ( ) [ ] { } . ; : " ' / \。</li>
+                <li>标识符不能是 C# 关键字。除非它们有一个 @ 前缀。 例如，@if 是有效的标识符，但 if 不是，因为 if 是关键字。</li>
+                <li>标识符必须区分大小写。大写字母和小写字母被认为是不同的字母。</li>
+                <li>不能与C#的类库名称相同。</li>
+                </ul>
+                <h2 class="tutheader">C# 关键字</h2>
+                <p>关键字是 C# 编译器预定义的保留字。这些关键字不能用作标识符，但是，如果您想使用这些关键字作为标识符，可以在关键字前面加上 @ 字符作为前缀。</p> 
+                <p>在 C# 中，有些关键字在代码的上下文中有特殊的意义，如 get 和 set，这些被称为上下文关键字（contextual keywords）。</p>
+                <p>下表列出了 C# 中的保留关键字（Reserved Keywords）和上下文关键字（Contextual Keywords）：</p>
+                <table class="reference notranslate">
+                <tr><td colspan = "7"><b>保留关键字</b></td></tr>
+                <tr><td>abstract</td><td>as</td><td>base</td><td>bool</td><td>break</td><td>byte</td><td>case</td></tr>
+                <tr><td>catch</td><td>char</td><td>checked</td><td>class</td><td>const</td><td>continue</td><td>decimal</td></tr>
+                <tr><td>default</td><td>delegate</td><td>do</td><td>double</td><td>else</td><td>enum</td><td>event</td></tr>
+                <tr><td>explicit</td><td>extern</td><td>false</td><td>finally</td><td>fixed</td><td>float</td><td>for</td></tr>
+                <tr><td>foreach</td><td>goto</td><td>if</td><td>implicit</td><td>in</td><td>in (generic<br> modifier)</td><td>int</td></tr>
+                <tr><td>interface</td><td>internal</td><td>is</td><td>lock</td><td>long</td><td>namespace</td><td>new</td></tr>
+                <tr><td>null</td><td>object</td><td>operator</td><td>out</td><td>out<br> (generic<br> modifier)</td><td>override</td><td>params</td></tr>
+                <tr><td>private</td><td>protected</td><td>public</td><td>readonly</td><td>ref</td><td>return</td><td>sbyte</td></tr>
+                <tr><td>sealed</td><td>short</td><td>sizeof</td><td>stackalloc</td><td>static</td><td>string</td><td>struct</td></tr>
+                <tr><td>switch</td><td>this</td><td>throw</td><td>true</td><td>try</td><td>typeof</td><td>uint</td></tr>
+                <tr><td>ulong</td><td>unchecked</td><td>unsafe</td><td>ushort</td><td>using</td><td>virtual</td><td>void</td></tr>
+                <tr><td>volatile</td><td>while</td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr><td colspan = "7"><b>上下文关键字</b></td></tr>
+                <tr><td>add</td><td>alias</td><td>ascending</td><td>descending</td><td>dynamic</td><td>from</td><td>get</td></tr>
+                <tr><td>global</td><td>group</td><td>into</td><td>join</td><td>let</td><td>orderby</td><td>partial<br>(type)</td></tr>
+                <tr><td>partial<br> (method)</td><td>remove</td><td>select</td><td>set</td><td></td><td></td><td></td></tr>
+                </table>
+                
+                <h2 class="tutheader">顶级语句（Top-Level Statements）</h2>
+                <p>在 C# 9.0 版本中，引入了顶级语句（Top-Level Statements）的概念，这是一种新的编程范式，允许开发者在文件的顶层直接编写语句，而不需要将它们封装在方法或类中。</p>
+                <p><strong>特点：</strong></p>
+                <ul>
+                <li>
+                <p><strong>无需类或方法</strong>：顶级语句允许你直接在文件的顶层编写代码，无需定义类或方法。</p>
+                </li>
+                <li>
+                <p><strong>文件作为入口点</strong>：包含顶级语句的文件被视为程序的入口点，类似于 C# 之前的 <code class="">Main</code> 方法。</p>
+                </li>
+                <li>
+                <p><strong>自动 <code class="">Main</code> 方法</strong>：编译器会自动生成一个 <code class="">Main</code> 方法，并将顶级语句作为 <code class="">Main</code> 方法的主体。</p>
+                </li>
+                <li>
+                <p><strong>支持局部函数</strong>：尽管不需要定义类，但顶级语句的文件中仍然可以定义局部函数。</p>
+                </li>
+                <li>
+                <p><strong>更好的可读性</strong>：对于简单的脚本或工具，顶级语句提供了更好的可读性和简洁性。</p>
+                </li>
+                <li>
+                <p><strong>适用于小型项目</strong>：顶级语句非常适合小型项目或脚本，可以快速编写和运行代码。</p>
+                </li>
+                <li>
+                <p><strong>与现有代码兼容</strong>：顶级语句可以与现有的 C# 代码库一起使用，不会影响现有代码。</p>
+                </li>
+                </ul>
+
     </section>
     <section class=main-section id=Declaring_variables>
       <header>Declaring variables</header>
