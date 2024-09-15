@@ -289,6 +289,50 @@
 
         当上面的代码被编译和执行时，它会产生下列结果：
         <code>Hello World</code>
+          <p>让我们看一下上面程序的各个部分：</p>
+          <ul>
+            <li>程序的第一行 <b>using System;</b> -  <b>using</b> 关键字用于在程序中包含 <b>System </b> 命名空间。
+            一个程序一般有多个 <b>using</b> 语句。</li>
+            <li>下一行是 <b>namespace</b> 声明。一个 <b>namespace</b> 里包含了一系列的类。<i>HelloWorldApplication</i> 命名空间包含了类 <i>HelloWorld</i>。</li>
+            <li>下一行是 <b>class</b> 声明。类 <i>HelloWorld</i> 包含了程序使用的数据和方法声明。类一般包含多个方法。方法定义了类的行为。在这里，<i>HelloWorld</i> 类只有一个 <b> Main</b> 方法。</li>
+            <li>下一行定义了 <b>Main</b> 方法，是所有 C# 程序的 <b>入口点</b>。<b>Main </b> 方法说明当执行时 类将做什么动作。</li>
+            <li>下一行 /*...*/ 将会被编译器忽略，且它会在程序中添加额外的 <b>注释</b>。</li>
+            <li>Main 方法通过语句 <b>Console.WriteLine("Hello World"); </b> 指定了它的行为。
+            <p><i>WriteLine</i> 是一个定义在 <i>System</i> 命名空间中的 <i>Console</i> 类的一个方法。该语句会在屏幕上显示消息 "Hello World"。</p>
+            </li>
+            <li>最后一行 <b>Console.ReadKey();</b> 是针对 VS.NET 用户的。这使得程序会等待一个按键的动作，防止程序从 Visual Studio .NET 启动时屏幕会快速运行并关闭。</li>
+            </ul>
+            <p>以下几点值得注意：</p>
+            <ul class="list">
+            <li>C# 是大小写敏感的。</li>
+            <li>所有的语句和表达式必须以分号（;）结尾。</li>
+            <li>程序的执行从 Main 方法开始。</li>
+            <li>与 Java 不同的是，文件名可以不同于类的名称。</li>
+            </ul>
+        <p>
+            编译 & 执行 C# 程序
+        </p>
+          <p>如果您使用 Visual Studio.Net 编译和执行 C# 程序，请按下面的步骤进行：</p>
+            <ul>
+            <li>启动 Visual Studio。</li>
+            <li>在菜单栏上，选择 File -> New -> Project。</li>
+            <li>从模板中选择 Visual C#，然后选择 Windows。</li>
+            <li>选择 Console Application。</li>
+            <li>为您的项目制定一个名称，然后点击 OK 按钮。</li>
+            <li>新项目会出现在解决方案资源管理器（Solution Explorer）中。</li>
+            <li>在代码编辑器（Code Editor）中编写代码。</li>
+            <li>点击 Run 按钮或者按下 F5 键来运行程序。会出现一个命令提示符窗口（Command Prompt window），显示 Hello World。</li>
+            </ul>
+            <p>您也可以使用命令行代替 Visual Studio IDE 来编译 C# 程序：</p>
+            <ul>
+            <li>打开一个文本编辑器，添加上面提到的代码。</li>
+            <li>保存文件为 <b>helloworld.cs</b>。</li>
+            <li>打开命令提示符工具，定位到文件所保存的目录。</li>
+            <li>键入 <b>csc helloworld.cs</b> 并按下 enter 键来编译代码。</li>
+            <li>如果代码没有错误，命令提示符会进入下一行，并生成 <b>helloworld.exe</b> 可执行文件。</li>
+            <li>接下来，键入 <b>helloworld</b> 来执行程序。</li>
+            <li>您将看到 "Hello World" 打印在屏幕上。</li>
+            </ul>
       </article>
     </section>
     <section class=main-section id=Variables>
