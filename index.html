@@ -272,19 +272,20 @@
         <p>C# 文件的后缀为<code>.cs</code></p>
       <article>
         以下创建一个 <strong>test.cs</strong> 文件，文件包含了可以打印出 "Hello World" 的简单代码：
-        <code>  using System;
-                namespace HelloWorldApplication
-                {
-                   class HelloWorld
-                   {
-                      static void Main(string[] args)
-                      {
-                         /* 我的第一个 C# 程序*/
-                         Console.WriteLine("Hello World");
-                         Console.ReadKey();
-                      }
-                   }
-                }
+        <code>  
+            <span style="color: #05a; font-weight: bold;">using</span> <span style="color: #696969;">System</span><span style="color: #008000;">;</span><br />
+            <span style="color: #05a; font-weight: bold;">namespace</span> HelloWorldApplication<br />
+            <span style="color: #008000;">&#123;</span><br />
+            &nbsp; &nbsp;<span style="color: #6666cc; font-weight: bold;">class</span> HelloWorld<br />
+            &nbsp; &nbsp;<span style="color: #008000;">&#123;</span><br />
+            &nbsp; &nbsp; &nbsp; <span style="color: #05a; font-weight: bold;">static</span> <span style="color: #6666cc; font-weight: bold;">void</span> Main<span style="color: #008000;">&#40;</span><span style="color: #6666cc; font-weight: bold;">string</span><span style="color: #008000;">&#91;</span><span style="color: #008000;">&#93;</span> args<span style="color: #008000;">&#41;</span><br />
+            &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span><br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color: #696969; font-style: italic;">/* 我的第一个 C# 程序*/</span><br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Console<span style="color: #008000;">.</span><span style="color: #05a;">WriteLine</span><span style="color: #008000;">&#40;</span><span style="color: #a11;">&quot;Hello World&quot;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span><br />
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Console<span style="color: #008000;">.</span><span style="color: #05a;">ReadKey</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">;</span><br />
+            &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span><br />
+            &nbsp; &nbsp;<span style="color: #008000;">&#125;</span><br />
+            <span style="color: #008000;">&#125;</span><br />
       </code>
 
         当上面的代码被编译和执行时，它会产生下列结果：
