@@ -57,9 +57,66 @@
         padding-left: 1em;
         color: #6a737d;
     }
+    #sidebar {
+        width: 200px;
+        background: #f0f0f0;
+        padding: 20px;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+    #main-content {
+        margin-left: 220px; /* Same as the width of the sidebar */
+    }
+    .nav-item {
+        padding: 5px 0;
+    }
+    .nav-item a {
+        text-decoration: none;
+        color: #333;
+    }
+    .nav-item a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
+<div id="sidebar">
+    <h2>Teedoc</h2>
+    <div class="nav-item">
+        <a href="#">Teedoc 简介</a>
+        <ul>
+            <li><a href="#">使用了 Teedoc 的网站</a></li>
+        </ul>
+    </div>
+    <div class="nav-item">
+        <a href="#">基本使用</a>
+        <ul>
+            <li><a href="#">快速开始</a></li>
+            <li><a href="#">安装 Teedoc</a></li>
+            <li><a href="#">文档结构和配置</a></li>
+            <li><a href="#">编写文档内容(语法)</a>
+                <ul>
+                    <li><a href="#">markdown 语法</a></li>
+                    <li><a href="#">Jupyter 语法</a></li>
+                    <li><a href="#">HTML 语法</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="nav-item">
+        <a href="#">写文档时需注意</a>
+        <ul>
+            <li><a href="#">博客</a></li>
+            <li><a href="#">部署</a></li>
+            <li><a href="#">常见问题</a></li>
+            <li><a href="#">进阶使用</a></li>
+            <li><a href="#">插件</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="main-content">
     <h1>技术文档示例</h1>
     <h2>简介</h2>
     <p>这是一个技术文档的示例页面，使用HTML和简单的CSS来模拟Markdown的风格。</p>
@@ -103,5 +160,7 @@ helloWorld();</code></pre>
 
     <h2>许可证</h2>
     <p>本软件遵循MIT许可证。</p>
+</div>
+
 </body>
 </html>
