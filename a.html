@@ -1,67 +1,136 @@
-<code>
-  using Engine;
-using Engine.Audio;
-using Engine.Graphics;
-using Engine.Input;
-using Engine.Media;
-using Engine.Serialization;
-using Game;
-using GameEntitySystem;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using TemplatesDatabase;
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>开局送东西</title>
+    <style>
+        /* 定义代码块的样式 */
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
 
-namespace Game
-{
-    public class SubsystemTest : Subsystem
-    {
-        public PlayerData m_playerData;
+        /* 关键字高亮 */
+        .keyword {
+            color: #007020;
+            font-weight: bold;
+        }
 
-        //当玩家第一次添加时执行
-        public void OnPlayerFirstAdded(ComponentPlayer componentPlayer)
-        {
-            //清空衣服
-            ComponentClothing componentClothing = componentPlayer.Entity.FindComponent<ComponentClothing>();
-            if (componentClothing != null)
+        /* 字符串高亮 */
+        .string {
+            color: #d14;
+        }
+
+        /* 注释高亮 */
+        .comment {
+            color: #60a0b0;
+            font-style: italic;
+        }
+
+        /* 类型名高亮 */
+        .type {
+            color: #905;
+        }
+
+        /* 数字高亮 */
+        .number {
+            color: #099;
+        }
+
+        /* 运算符高亮 */
+        .operator {
+            color: #000;
+        }
+
+        /* 其他标识符 */
+        .identifier {
+            color: #000;
+        }
+
+        /* 标点符号 */
+        .punctuation {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>开局送东西</h1>
+
+    <pre>
+        <code>
+            <span class="keyword">using</span> Engine;
+            <span class="keyword">using</span> Engine.Audio;
+            <span class="keyword">using</span> Engine.Graphics;
+            <span class="keyword">using</span> Engine.Input;
+            <span class="keyword">using</span> Engine.Media;
+            <span class="keyword">using</span> Engine.Serialization;
+            <span class="keyword">using</span> Game;
+            <span class="keyword">using</span> GameEntitySystem;
+            <span class="keyword">using</span> System;
+            <span class="keyword">using</span> System.Collections.Generic;
+            <span class="keyword">using</span> System.Globalization;
+            <span class="keyword">using</span> System.IO;
+            <span class="keyword">using</span> System.Linq;
+            <span class="keyword">using</span> System.Text;
+            <span class="keyword">using</span> System.Text.RegularExpressions;
+            <span class="keyword">using</span> System.Xml.Linq;
+            <span class="keyword">using</span> TemplatesDatabase;
+
+            <span class="keyword">namespace</span> Game
             {
-                foreach (var slot in componentClothing.m_clothes.Keys)
+                <span class="keyword">public</span> <span class="type">class</span> SubsystemTest : <span class="type">Subsystem</span>
                 {
-                    componentClothing.m_clothes[slot].Clear();
+                    <span class="keyword">public</span> PlayerData m_playerData;
+
+                    <span class="comment">// 当玩家第一次添加时执行</span>
+                    <span class="keyword">public</span> <span class="keyword">void</span> OnPlayerFirstAdded(<span class="type">ComponentPlayer</span> componentPlayer)
+                    {
+                        <span class="comment">// 清空衣服</span>
+                        <span class="type">ComponentClothing</span> componentClothing = componentPlayer.Entity.FindComponent&lt;<span class="type">ComponentClothing</span>&gt;();
+                        <span class="keyword">if</span> (componentClothing != <span class="keyword">null</span>)
+                        {
+                            <span class="keyword">foreach</span> (<span class="keyword">var</span> slot <span class="keyword">in</span> componentClothing.m_clothes.Keys)
+                            {
+                                componentClothing.m_clothes[slot].Clear();
+                            }
+                        }
+                        <span class="comment">// 背包添加物品</span>
+                        <span class="type">ComponentInventory</span> componentInventory = componentPlayer.Entity.FindComponent&lt;<span class="type">ComponentInventory</span>&gt;();
+                        <span class="keyword">if</span> (componentInventory != <span class="keyword">null</span>)
+                        {
+                            componentInventory.AddSlotItems(slotIndex: <span class="number">0</span>, value: <span class="number">46</span>, count: <span class="number">3</span>);
+                            componentInventory.AddSlotItems(slotIndex: <span class="number">10</span>, value: <span class="number">126</span>, count: <span class="number">1</span>);
+                        }
+                    }
+
+                    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> OnEntityAdded(<span class="type">Entity</span> entity)
+                    {
+                        <span class="type">ComponentPlayer</span> componentPlayer = entity.FindComponent&lt;<span class="type">ComponentPlayer</span>&gt;();
+                        <span class="keyword">if</span> (componentPlayer != <span class="keyword">null</span> && m_playerData != <span class="keyword">null</span> && m_playerData == componentPlayer.PlayerData)
+                        {
+                            OnPlayerFirstAdded(componentPlayer);
+                            m_playerData = <span class="keyword">null</span>;
+                        }
+                    }
+
+                    <span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> Load(<span class="type">ValuesDictionary</span> valuesDictionary)
+                    {
+                        <span class="keyword">base</span>.Load(valuesDictionary);
+                        <span class="keyword">base</span>.Project.FindSubsystem&lt;<span class="type">SubsystemPlayers</span>&gt;(<span class="keyword">true</span>).PlayerAdded += <span class="keyword">delegate</span> (<span class="type">PlayerData</span> playerData)
+                        {
+                            m_playerData = playerData;
+                        };
+                    }
                 }
             }
-            //背包添加物品
-            ComponentInventory componentInventory = componentPlayer.Entity.FindComponent<ComponentInventory>();
-            if (componentInventory != null)
-            {
-                componentInventory.AddSlotItems(slotIndex: 0, value: 46, count: 3);
-                componentInventory.AddSlotItems(slotIndex: 10, value: 126, count: 1);
-            }
-        }
+        </code>
+    </pre>
 
-        public override void OnEntityAdded(Entity entity)
-        {
-            ComponentPlayer componentPlayer = entity.FindComponent<ComponentPlayer>();
-            if (componentPlayer != null && m_playerData != null && m_playerData == componentPlayer.PlayerData)
-            {
-                OnPlayerFirstAdded(componentPlayer);
-                m_playerData = null;
-            }
-        }
-
-        public override void Load(ValuesDictionary valuesDictionary)
-        {
-            base.Load(valuesDictionary);
-            base.Project.FindSubsystem<SubsystemPlayers>(true).PlayerAdded += delegate (PlayerData playerData)
-            {
-                m_playerData = playerData;
-            };
-        }
-    }
-}
-</code>
+</body>
+</html>
